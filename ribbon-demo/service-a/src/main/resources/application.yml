@@ -3,10 +3,9 @@ spring:
     name: test-service
 server:
   port: 8001
-eureka:
-  client:
-    # 是否将eureka自身作为应用注册到eureka注册中心,默认为true
-    registerWithEureka: true
-    service-url:
-      # 这里可以填写所有的eureka服务器地址并以','分离，当前面不能注册时候,自动选择后面的进行注册，排除单点故障问题
-      defaultZone: http://localhost:8000/eureka/
+#eureka:
+#  client:
+#    registerWithEureka: true
+#    service-url:
+##      defaultZone: http://localhost:8000/eureka/
+#      defaultZone: http://eureka.didispace.com/eureka/

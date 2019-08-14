@@ -1,7 +1,8 @@
 package com.github.chengzhx76.ribbon.demo.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  * @desc:
@@ -11,8 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ServiceBController {
+
     @GetMapping("hello")
-    public String testA(){
+    public String testA() {
         return "Hello world B!";
+    }
+
+    @GetMapping("hello/{name}")
+    public String testAGetName(@PathVariable String name) {
+        return "GET-Hello world B!" + name;
+    }
+
+    @PostMapping("hello/{name}")
+    public String testAPostName(@PathVariable String name, @RequestBody Map<String, Object> map) {
+        System.out.println("B======> " + map);
+        return "POST-Hello world B!" + name;
     }
 }
