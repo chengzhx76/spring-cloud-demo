@@ -13,6 +13,7 @@ server:
 ribbon:
   eureka:
     enabled: false
+  listOfServers: www.lapin365.com
   ConnectTimeout: 1000
   NIWSServerListClassName: com.github.chengzhx76.ribbon.demo.config.ribbon.CustomServerList
 
