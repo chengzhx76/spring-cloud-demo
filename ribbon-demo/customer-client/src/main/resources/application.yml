@@ -13,8 +13,20 @@ server:
 ribbon:
   eureka:
     enabled: false
+  ConnectTimeout: 1000
+  NIWSServerListClassName: com.github.chengzhx76.ribbon.demo.config.ribbon.CustomServerList
 
-test-service:
+
+test-service-a:
   ribbon:
-    listOfServers: localhost:8001,localhost:8002
+    listOfServers: www.baidu.com,www.google.com
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    ReadTimeout: 3000
+    ConnectTimeout: 5000
+
+test-service-b:
+  ribbon:
+    listOfServers: www.ithome.com,www.ruanmei.com
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    ReadTimeout: 6000
+    ConnectTimeout: 10000
