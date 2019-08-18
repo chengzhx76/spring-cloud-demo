@@ -10,24 +10,26 @@ server:
 #    service-url:
 #      defaultZone: http://eureka.didispace.com/eureka/
 
+# 直接操作文件
+
 ribbon:
   eureka:
     enabled: false
-  listOfServers: www.lapin365.com
-  ConnectTimeout: 1000
+#  NIWSServerListClassName: com.github.chengzhx76.ribbon.demo.config.ribbon.CustomServerList
+#  listOfServers: www.lapin365.com
+#  ConnectTimeout: 1000
+
+#
+  NFLoadBalancerClassName: com.netflix.loadbalancer.DynamicServerListLoadBalancer
   NIWSServerListClassName: com.github.chengzhx76.ribbon.demo.config.ribbon.CustomServerList
-
-
-test-service-a:
-  ribbon:
-    listOfServers: www.baidu.com,www.google.com
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
-    ReadTimeout: 3000
-    ConnectTimeout: 5000
-
-test-service-b:
-  ribbon:
-    listOfServers: www.ithome.com,www.ruanmei.com
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
-    ReadTimeout: 6000
-    ConnectTimeout: 10000
+  listOfServers: www.baidua.com,www.googlea.com
+  NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+  ReadTimeout: 3000
+  ConnectTimeout: 5000
+#
+#test-service-b:
+#  ribbon:
+#    listOfServers: www.ithome.com,www.ruanmei.com
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#    ReadTimeout: 6000
+#    ConnectTimeout: 10000

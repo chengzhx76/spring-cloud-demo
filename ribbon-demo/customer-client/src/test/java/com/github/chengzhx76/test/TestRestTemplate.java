@@ -29,7 +29,7 @@ public class TestRestTemplate {
 
     @Test
     public void testGet1() {
-        String data = restTemplate.getForObject("http://test-service-c", String.class);
+        String data = restTemplate.getForObject("http://test-service-a", String.class);
         System.out.println("============>" + data);
 //        String data = restTemplate.getForObject("http://test-service-c/hello/{1}", String.class, "cheng");
 //        System.out.println("============>" + data);

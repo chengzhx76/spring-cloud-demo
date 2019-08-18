@@ -2,9 +2,8 @@ package com.github.chengzhx76.ribbon.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.netflix.ribbon.RibbonClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,8 +13,9 @@ import org.springframework.web.client.RestTemplate;
  * @date: 2019/8/7
  */
 
-@EnableCircuitBreaker
-@EnableDiscoveryClient
+//@EnableCircuitBreaker
+//@EnableDiscoveryClient
+@RibbonClients(defaultConfiguration = com.github.chengzhx76.ribbon.demo.config.ribbon.Config.class)
 @SpringBootApplication
 public class CustomerClientApplication {
 

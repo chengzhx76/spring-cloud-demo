@@ -3,8 +3,8 @@ package com.github.chengzhx76.ribbon.demo.config.ribbon;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.netflix.client.config.IClientConfig;
-import com.netflix.loadbalancer.AbstractServerList;
 import com.netflix.loadbalancer.Server;
+import com.netflix.loadbalancer.ServerList;
 
 import java.util.List;
 
@@ -13,15 +13,15 @@ import java.util.List;
  * @author: hp
  * @date: 2019/8/15
  */
-public class CustomServerList extends AbstractServerList<Server> {
+public class CustomServerList implements ServerList<Server> {
 
     private IClientConfig clientConfig;
 
-    @Override
-    public void initWithNiwsConfig(IClientConfig clientConfig) {
-        System.out.println("================>initWithNiwsConfig");
-        this.clientConfig = clientConfig;
-    }
+    //@Override
+    //public void initWithNiwsConfig(IClientConfig clientConfig) {
+    //    System.out.println("================>initWithNiwsConfig");
+    //    this.clientConfig = clientConfig;
+    //}
 
     @Override
     public List<Server> getInitialListOfServers() {
@@ -33,7 +33,7 @@ public class CustomServerList extends AbstractServerList<Server> {
     public List<Server> getUpdatedListOfServers() {
         System.out.println("================>getUpdatedListOfServers");
 //        String listOfServers = clientConfig.get(CommonClientConfigKey.ListOfServers);
-        String listOfServers = "www.baidu.com,www.google.com";
+        String listOfServers = "www.baiduc.com,www.googlec.com";
         return derive(listOfServers);
     }
 
