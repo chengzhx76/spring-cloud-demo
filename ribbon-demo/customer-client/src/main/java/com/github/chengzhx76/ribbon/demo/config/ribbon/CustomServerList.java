@@ -5,6 +5,7 @@ import com.google.common.collect.Lists;
 import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.Server;
 import com.netflix.loadbalancer.ServerList;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -15,7 +16,16 @@ import java.util.List;
  */
 public class CustomServerList implements ServerList<Server> {
 
+    @Autowired
     private IClientConfig clientConfig;
+
+    public CustomServerList() {
+    }
+
+    public CustomServerList(IClientConfig clientConfig) {
+        System.out.println("================>getInitialListOfServers");
+        this.clientConfig = clientConfig;
+    }
 
     //@Override
     //public void initWithNiwsConfig(IClientConfig clientConfig) {
@@ -31,9 +41,10 @@ public class CustomServerList implements ServerList<Server> {
 
     @Override
     public List<Server> getUpdatedListOfServers() {
+        System.out.println(clientConfig);
         System.out.println("================>getUpdatedListOfServers");
 //        String listOfServers = clientConfig.get(CommonClientConfigKey.ListOfServers);
-        String listOfServers = "www.baiduc.com,www.googlec.com";
+        String listOfServers = "localhost:8004";
         return derive(listOfServers);
     }
 

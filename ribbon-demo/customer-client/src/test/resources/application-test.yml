@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: consumer-client
+server:
+  port: 8003
+
+#eureka:
+#  client:
+#    registerWithEureka: true
+#    service-url:
+#      defaultZone: http://eureka.didispace.com/eureka/
+
+ribbon:
+  eureka:
+    enabled: false
+  listOfServers: www.lapin365.com
+  ConnectTimeout: 1000
+  NIWSServerListClassName: com.github.chengzhx76.ribbon.demo.config.ribbon.CustomServerList
+
+
+test-service-a:
+  ribbon:
+    listOfServers: www.baidu.com,www.google.com
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    ReadTimeout: 3000
+    ConnectTimeout: 5000

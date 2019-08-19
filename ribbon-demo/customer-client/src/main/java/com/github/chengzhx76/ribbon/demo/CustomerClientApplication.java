@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
  */
 
 //@EnableCircuitBreaker
-//@EnableDiscoveryClient
+//@EnableDiscoveryClienst
 @RibbonClients(defaultConfiguration = com.github.chengzhx76.ribbon.demo.config.ribbon.Config.class)
 @SpringBootApplication
 public class CustomerClientApplication {

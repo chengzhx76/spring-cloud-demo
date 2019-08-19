@@ -16,6 +16,8 @@
         <module>service-a</module>
         <module>service-b</module>
         <module>customer-client</module>
+        <module>service-c</module>
+        <module>service-d</module>
     </modules>
 
 </project>

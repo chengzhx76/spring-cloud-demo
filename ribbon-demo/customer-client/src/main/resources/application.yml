@@ -2,7 +2,8 @@ spring:
   application:
     name: consumer-client
 server:
-  port: 8003
+  port: 8011
+
 
 #eureka:
 #  client:
@@ -15,21 +16,21 @@ server:
 ribbon:
   eureka:
     enabled: false
-#  NIWSServerListClassName: com.github.chengzhx76.ribbon.demo.config.ribbon.CustomServerList
-#  listOfServers: www.lapin365.com
-#  ConnectTimeout: 1000
+  listOfServers: localhost:8001
+  ConnectTimeout: 1000
 
-#
-  NFLoadBalancerClassName: com.netflix.loadbalancer.DynamicServerListLoadBalancer
-  NIWSServerListClassName: com.github.chengzhx76.ribbon.demo.config.ribbon.CustomServerList
-  listOfServers: www.baidua.com,www.googlea.com
-  NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
-  ReadTimeout: 3000
-  ConnectTimeout: 5000
-#
-#test-service-b:
-#  ribbon:
-#    listOfServers: www.ithome.com,www.ruanmei.com
-#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
-#    ReadTimeout: 6000
-#    ConnectTimeout: 10000
+test-service-a:
+  ribbon:
+    NFLoadBalancerClassName: com.netflix.loadbalancer.DynamicServerListLoadBalancer
+    listOfServers: localhost:8002
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    ReadTimeout: 3000
+    ConnectTimeout: 5000
+
+test-service-b:
+  ribbon:
+    NFLoadBalancerClassName: com.netflix.loadbalancer.DynamicServerListLoadBalancer
+    listOfServers: localhost:8003
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    ReadTimeout: 6000
+    ConnectTimeout: 10000
