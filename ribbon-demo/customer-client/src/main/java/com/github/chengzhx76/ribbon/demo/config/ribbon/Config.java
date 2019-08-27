@@ -21,8 +21,8 @@ public class Config {
     @Bean
     @ConditionalOnMissingBean
     public IClientConfig ribbonClientConfig() {
-        System.out.println("===========>ribbonClientConfig" +name);
 //        DefaultClientConfigImpl config = new DefaultClientConfigImpl();
+        System.out.println("===========>ribbonClientConfig" +name);
         DefaultClientConfigImpl config = new DatabaseClientConfig(name);
         config.loadProperties(this.name);
         config.set(CommonClientConfigKey.ConnectTimeout, 1000);

@@ -30,6 +30,8 @@ public class Test {
 //    DiscoveryClient
 //    DynamicServerListLoadBalancer
 
+//    FailureAnalyzer
+
     public static void main(String[] args) throws Exception {
         ConfigurationManager.loadPropertiesFromResources("sample-client.properties");  // 1
         System.out.println(ConfigurationManager.getConfigInstance().getProperty("sample-client.ribbon.listOfServers"));

@@ -1,0 +1,28 @@
+server:
+  port: 8200
+
+spring:
+  application:
+    name: kafka-server
+  kafka:
+    producer:
+      acks: all  #所有的 ISR 收到消息后认为收到。
+      buffer-memory: 1048576
+      bootstrap-servers: 10.10.144.28:9092
+      retries: 3 #消息发送失败重试次数
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      client-id: uchain-proxy1 #客户端的名字
+#    consumer:
+#      auto-offset-reset: latest # 偏移量 从最新的开始
+#      bootstrap-servers: 10.10.144.26:9092,10.10.144.28:9092
+#      max-poll-records: 200 # 每次从kafka抓多少数据
+#      key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
+#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      enable-auto-commit: false  #手动控制提交
+#      auto-commit-interval: 100  #0.1秒等待提交
+#      heartbeat-interval: 5000
+#      group-id: uchain-proxy1
+#    listener:
+#      poll-timeout: 100
+#      client-id: uchain-proxy1 #客户端的名字

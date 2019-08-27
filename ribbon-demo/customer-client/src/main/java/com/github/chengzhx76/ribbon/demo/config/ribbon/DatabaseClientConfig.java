@@ -81,9 +81,6 @@ public class DatabaseClientConfig extends DefaultClientConfigImpl {
 
     @Override
     protected Object getProperty(String key) {
-        if ("listOfServers".equals(key)) {
-            return "localhost:8003";
-        }
         if (super.isEnableDynamicProperties()) {
             String dynamicValue = null;
             DynamicStringProperty dynamicProperty = dynamicProperties.get(key);
